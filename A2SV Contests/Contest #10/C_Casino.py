@@ -1,7 +1,7 @@
 from math import gcd
 
-def lcm(a, b):
-    return abs(a*b) // gcd(a, b)
+# def lcm(a, b):
+#     return abs(a*b) // gcd(a, b)
 
 def reduce(n):
     while n % 2 == 0:
@@ -12,7 +12,6 @@ def reduce(n):
 
 n = int(input())
 arr = list(map(int, input().split())) 
-
 base = reduce(arr[0])
 
 for i in range(1, len(arr)):

@@ -12,18 +12,18 @@ q = []
 for i in range(n):
     if indegree[i] == 0:
         heapq.heappush(q, i)
-print('q',q)
+
 ans = []
 while q:
     u = heapq.heappop(q)
     
     ans.append(u+1)
-    print('a')
+    # print('a')
     for v in graph[u]:
         indegree[v] -= 1
         if indegree[v] == 0:
             heapq.heappush(q, v)
-            print('q',q)
+    
 if len(ans) == n:
     print(*ans)
 else:    

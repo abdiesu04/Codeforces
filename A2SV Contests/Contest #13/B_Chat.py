@@ -9,9 +9,9 @@ a = []
 for _ in range(q):
     x,y = map(int,input().split())
     if x == 1:
-        a.append(t[y-1])
+        heapq.heappush(a,t[y-1])
         if len(a) > k:
-            a.remove(min(a))
+            heapq.heappop(a)
     else:
         if t[y-1] in a:
             print('YES')

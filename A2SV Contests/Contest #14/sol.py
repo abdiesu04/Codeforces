@@ -1,18 +1,16 @@
-t = int(input())
-for _ in range(t):
-    a, b, c = map(int, input().split())
-    xs  = [0]
-    ys  = [0]
-    for _ in range(c):
-        x , y = map(int, input().split())
-        xs.append(x)
-        ys.append(y)
-    xs.append(a + 1)
-    ys.append(b + 1)
-    xs.sort()
-    ys.sort()
-    xss , yss  = [ ], []
-    for i in range(1,len(xs)):
-        xss.append(xs[i] - xs[i-1])
-        yss.append(ys[i] - ys[i-1])
-    print(max(xss) * max(yss))
+def dfs(i, capacity):
+    if i == len(profit):
+        return 0
+
+    maxProfit = dfs(i+1, capacity)
+    newCap = capacity - weight[i]
+    if newCap >= 0:
+        p = profit[i] + dfs(i+1, newCap)
+        maxProfit = max(maxProfit, p)
+    return maxProfit
+
+capacity = 8
+profit = [4, 4, 7, 1]
+weight = [5, 2, 3, 1]
+
+print(dfs(0, capacity))
